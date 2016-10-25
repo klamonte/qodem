@@ -2277,6 +2277,9 @@ static void hvp() {
 static void sgr() {
     int i;
     int j;
+    int c;
+    int indexed_color = Q_FALSE;
+    int rgb_color = Q_FALSE;
     short foreground, background;
     short curses_color;
 
@@ -2291,8 +2294,24 @@ static void sgr() {
             scrollback_full_attr(Q_COLOR_CONSOLE_TEXT);
         DLOG2(("RESET\n"));
         return;
-
     } else {
+        i = atoi((char *)state.params[0]);
+        if (state.params_n >= 2 && (i == 38 || i == 48) && (
+                (q_status.emulation == Q_EMUL_LINUX) ||
+                (q_status.emulation == Q_EMUL_LINUX_UTF8) ||
+                (q_status.emulation == Q_EMUL_XTERM) ||
+                (q_status.emulation == Q_EMUL_XTERM_UTF8)
+        )) {
+            j = atoi((char *)state.params[1]);
+
+            /* ITU T.416 indexed colors */
+            if (state.params_n == 2 && j == 5)
+                indexed_color = Q_TRUE;
+
+            /* ISO-8613-3 24-bit RGB colors */
+            if (state.params_n == 4 && j == 2)
+                rgb_color = Q_TRUE;
+        }
 
         for (i = 0; i <= state.params_n; i++) {
             j = atoi((char *) state.params[i]);
@@ -2445,16 +2464,16 @@ static void sgr() {
                     foreground = Q_COLOR_WHITE;
                     break;
                 case 38:
-                    foreground = q_text_colors[Q_COLOR_CONSOLE_TEXT].fg;
-                    if (q_text_colors[Q_COLOR_CONSOLE_TEXT].bold == Q_TRUE) {
-                        q_current_color |= Q_A_BOLD;
+                    if (indexed_color == Q_TRUE) {
+                        c = atoi((char *)state.params[i + 2]);
+                        if (c < 16) {
+                            foreground = c;
+                            if (c > 7) q_current_color |= Q_A_BOLD;
+                        }
+                        i += 3;
                     }
-                    if ((q_status.emulation == Q_EMUL_LINUX_UTF8) ||
-                        (q_status.emulation == Q_EMUL_LINUX)
-                    ) {
-                        /* Linux console also flips underline */
-                        q_current_color |= Q_A_UNDERLINE;
-                    }
+
+                    if (rgb_color) i += 5;
                     break;
                 case 39:
                     foreground = q_text_colors[Q_COLOR_CONSOLE_TEXT].fg;
@@ -2499,6 +2518,18 @@ static void sgr() {
                 case 47:
                     /* Set white background */
                     background = Q_COLOR_WHITE;
+                    break;
+                case 48:
+                    if (indexed_color) {
+                        c = atoi((char *)state.params[i + 2]);
+                        if (c < 16) {
+                            background = c;
+                            if (c > 7) q_current_color |= Q_A_BOLD;
+                        }
+                        i += 3;
+                    }
+
+                    if (rgb_color) i += 5;
                     break;
                 case 49:
                     background = q_text_colors[Q_COLOR_CONSOLE_TEXT].bg;
