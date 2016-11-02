@@ -804,7 +804,8 @@ void q_setup_colors() {
     /*
      * Initialize the 64 curses colors.
      */
-    if ((COLORS >= 16) && (COLOR_PAIRS >= 2 * q_color_bold_offset)) {
+    if ((COLORS >= 16) && (COLOR_PAIRS >= 2 * q_color_bold_offset) &&
+        can_change_color()) {
         /*
          * Complete re-map both the colors and color pairs.  Note that the
          * max color value is 1000.  These values are gamma-corrected (gamma
@@ -887,7 +888,6 @@ void q_setup_colors() {
      * Special case: put black-on-black at 0x38
      */
     init_pair(0x38, 0x00, 0x00);
-
     q_color_bold_offset = 0;
 
     if (COLOR_PAIRS > 64) {
