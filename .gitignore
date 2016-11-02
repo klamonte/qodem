@@ -51,6 +51,7 @@ config.status
 config.log
 Makefile
 Makefile.in
+aclocal.m4
 lib/cryptlib/tools/endian
 build/osx/dmg
 build/osx/*.dmg
