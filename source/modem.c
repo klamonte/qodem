@@ -1242,7 +1242,7 @@ exit_dialog:
             /*
              * Save if the user said so.
              */
-            if ((new_keystroke == 'y') || (new_keystroke == C_CR)) {
+            if ((new_keystroke == 'y') || (new_keystroke == Q_KEY_ENTER)) {
                 save_modem_config();
             } else {
                 /*
@@ -1260,7 +1260,6 @@ exit_dialog:
         return;
 
     case Q_KEY_ENTER:
-    case C_CR:
         if (highlighted_row != M_NONE) {
             /*
              * The OK exit point.
@@ -2242,7 +2241,7 @@ Q_BOOL open_serial_port() {
             _("Attention!"), notify_message,
             _(" Y-Proceed Without a Lock File   N-Do Not Open Serial Port "),
             Q_TRUE, 0.0, "YyNn\r"));
-        if ((keystroke == 'y') || (keystroke == C_CR)) {
+        if ((keystroke == 'y') || (keystroke == Q_KEY_ENTER)) {
             memset(lock_filename, 0, sizeof(lock_filename));
         } else {
             return Q_FALSE;
@@ -2330,7 +2329,7 @@ Q_BOOL open_serial_port() {
                 _("Attention!"), notify_message,
                 _(" Y-Proceed Without a Lock File   N-Do Not Open Serial Port "),
                 Q_TRUE, 0.0, "YyNn\r"));
-            if ((keystroke == 'y') || (keystroke == C_CR)) {
+            if ((keystroke == 'y') || (keystroke == Q_KEY_ENTER)) {
                 memset(lock_filename, 0, sizeof(lock_filename));
             } else {
                 return Q_FALSE;

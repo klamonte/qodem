@@ -1170,51 +1170,6 @@ void post_keystroke(const int keystroke, const int flags) {
             }
         }
 
-#ifdef Q_PDCURSES_WIN32
-
-        /*
-         * Windows special case: local shells (cmd.exe) require CRLF.
-         */
-        if ((q_status.online == Q_TRUE) &&
-            ((q_status.dial_method == Q_DIAL_METHOD_SHELL) ||
-             (q_status.dial_method == Q_DIAL_METHOD_COMMANDLINE))
-            ) {
-            if (keystroke == C_CR) {
-                encode_utf8_char(C_LF);
-                qodem_write(q_child_tty_fd, utf8_buffer, strlen(utf8_buffer),
-                            Q_TRUE);
-                if (q_status.emulation == Q_EMUL_DEBUG) {
-                    debug_local_echo(C_LF);
-                    /*
-                     * Force the console to refresh
-                     */
-                    q_screen_dirty = Q_TRUE;
-                }
-            }
-        }
-
-#endif
-
-        /*
-         * VT100-ish special case: when new_line_mode is true, post a LF
-         * after a CR.
-         */
-        if (((q_status.emulation == Q_EMUL_VT100) ||
-             (q_status.emulation == Q_EMUL_VT102) ||
-             (q_status.emulation == Q_EMUL_VT220) ||
-             (q_status.emulation == Q_EMUL_LINUX) ||
-             (q_status.emulation == Q_EMUL_LINUX_UTF8) ||
-             (q_status.emulation == Q_EMUL_XTERM) ||
-             (q_status.emulation == Q_EMUL_XTERM_UTF8)
-            ) && (keystroke == C_CR)
-        ) {
-            if (q_vt100_new_line_mode == Q_TRUE) {
-                encode_utf8_char(C_LF);
-                qodem_write(q_child_tty_fd, utf8_buffer, strlen(utf8_buffer),
-                            Q_TRUE);
-            }
-        }
-
         /*
          * Done
          */
@@ -1388,6 +1343,49 @@ void post_keystroke(const int keystroke, const int flags) {
                 if (q_status.emulation == Q_EMUL_DEBUG) {
                     for (i = 0; i < strlen(utf8_buffer); i++) {
                         debug_local_echo(utf8_buffer[i]);
+                    }
+                }
+
+#ifdef Q_PDCURSES_WIN32
+                /*
+                 * Windows special case: local shells (cmd.exe) require CRLF.
+                 */
+                if ((q_status.online == Q_TRUE) &&
+                    ((q_status.dial_method == Q_DIAL_METHOD_SHELL) ||
+                     (q_status.dial_method == Q_DIAL_METHOD_COMMANDLINE))
+                ) {
+                    if (keystroke == Q_KEY_ENTER) {
+                        encode_utf8_char(C_LF);
+                        qodem_write(q_child_tty_fd, utf8_buffer, strlen(utf8_buffer),
+                                    Q_TRUE);
+                        if (q_status.emulation == Q_EMUL_DEBUG) {
+                            debug_local_echo(C_LF);
+                            /*
+                             * Force the console to refresh
+                             */
+                            q_screen_dirty = Q_TRUE;
+                        }
+                    }
+                }
+#endif
+
+                /*
+                 * VT100-ish special case: when new_line_mode is true, post a LF
+                 * after a CR.
+                 */
+                if (((q_status.emulation == Q_EMUL_VT100) ||
+                     (q_status.emulation == Q_EMUL_VT102) ||
+                     (q_status.emulation == Q_EMUL_VT220) ||
+                     (q_status.emulation == Q_EMUL_LINUX) ||
+                     (q_status.emulation == Q_EMUL_LINUX_UTF8) ||
+                     (q_status.emulation == Q_EMUL_XTERM) ||
+                     (q_status.emulation == Q_EMUL_XTERM_UTF8)
+                    ) && (keystroke == KEY_ENTER)
+                ) {
+                    if (q_vt100_new_line_mode == Q_TRUE) {
+                        encode_utf8_char(C_LF);
+                        qodem_write(q_child_tty_fd, utf8_buffer, strlen(utf8_buffer),
+                                    Q_TRUE);
                     }
                 }
             }
