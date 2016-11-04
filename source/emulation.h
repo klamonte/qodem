@@ -43,9 +43,10 @@ typedef enum Q_EMULATIONS {
     Q_EMUL_LINUX,               /* Linux console */
     Q_EMUL_LINUX_UTF8,          /* Linux console (UTF-8) */
     Q_EMUL_XTERM,               /* Xterm */
-    Q_EMUL_XTERM_UTF8           /* Xterm (UTF-8) */
+    Q_EMUL_XTERM_UTF8,          /* Xterm (UTF-8) */
+    Q_EMUL_ATARI,               /* Atari (ATASCII) */
+    Q_EMULATION_MAX
 } Q_EMULATION;
-#define Q_EMULATION_MAX (Q_EMUL_XTERM_UTF8 + 1)
 
 /**
  * The available return values from terminal_emulator().

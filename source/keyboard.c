@@ -91,6 +91,7 @@
 #include "ansi.h"
 #include "vt52.h"
 #include "vt100.h"
+#include "atari.h"
 #include "options.h"
 #include "field.h"
 #include "help.h"
@@ -234,6 +235,7 @@ static struct emulation_keyboard terminfo_keyboards[Q_EMULATION_MAX + 1] = {
     {Q_EMUL_LINUX_UTF8, "linux"},
     {Q_EMUL_XTERM, "xterm"},
     {Q_EMUL_XTERM_UTF8, "xterm"},
+    {Q_EMUL_ATARI, "atari"},
     {-1, NULL}
 };
 
@@ -255,6 +257,7 @@ static struct emulation_keyboard emulation_bound_keyboards[Q_EMULATION_MAX +
     {Q_EMUL_LINUX_UTF8, "linux"},
     {Q_EMUL_XTERM, "xterm"},
     {Q_EMUL_XTERM_UTF8, "xterm"},
+    {Q_EMUL_ATARI, "atari"},
     {-1, NULL}
 };
 
@@ -1238,7 +1241,6 @@ void post_keystroke(const int keystroke, const int flags) {
     if ((wcslen(term_string) == 0) ||
         ((wcslen(term_string) == 1) && (term_string[0] == C_CR))
     ) {
-
         /*
          * Send "special" keys through the proper emulator keyboard function
          */
@@ -1266,6 +1268,9 @@ void post_keystroke(const int keystroke, const int flags) {
         case Q_EMUL_XTERM:
         case Q_EMUL_XTERM_UTF8:
             term_string = xterm_keystroke(keystroke, flags);
+            break;
+        case Q_EMUL_ATARI:
+            term_string = atari_keystroke(keystroke);
             break;
         }
     }
@@ -1322,6 +1327,10 @@ void post_keystroke(const int keystroke, const int flags) {
                      * running it through the direct Unicode translation map.
                      */
                     encode_utf8_char(translate_unicode_out(term_string[i]));
+                } else if ((q_status.emulation == Q_EMUL_ATARI)) {
+                    /* Atari control chars need to be sent raw. */
+                    utf8_buffer[0] = term_string[0];
+                    utf8_buffer[1] = 0;
                 } else {
                     /*
                      * Everyone else: try to backmap to the codepage,

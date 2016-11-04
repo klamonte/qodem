@@ -206,9 +206,9 @@ typedef enum Q_CODEPAGES {
      */
     Q_CODEPAGE_KOI8_R,          /* Russian */
     Q_CODEPAGE_KOI8_U,          /* Ukrainian */
-
+    Q_CODEPAGE_ATASCII,         /* ATASCII (Atari) */
+    Q_CODEPAGE_MAX
 } Q_CODEPAGE;
-#define Q_CODEPAGE_MAX (Q_CODEPAGE_KOI8_U + 1)
 
 #define UTF8_ACCEPT 0
 #define UTF8_REJECT 1

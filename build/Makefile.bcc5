@@ -87,6 +87,7 @@ LDLIBS = $(QODEM_LIB_DIR)\pdcurses.lib $(QODEM_LIB_DIR)\libc.lib c:\bc5\lib\ws2_
 
 QODEM_SRC = \
 $(QODEM_SRC_DIR)/ansi.c \
+$(QODEM_SRC_DIR)/atari.c \
 $(QODEM_SRC_DIR)/avatar.c \
 $(QODEM_SRC_DIR)/codepage.c \
 $(QODEM_SRC_DIR)/colors.c \
