@@ -70,6 +70,8 @@ void keyboard_handler() {
 
     if (keystroke == C_CR)
         keystroke = Q_KEY_ENTER;
+    if (keystroke == C_BS)
+        keystroke == Q_KEY_BACKSPACE;
 
     switch (q_program_state) {
 
