@@ -666,12 +666,6 @@ static wchar_t * bound_keyboard_keystroke(const int keystroke,
 
     switch (keystroke) {
 
-    case Q_KEY_ENTER:
-        if (net_is_connected() && telnet_is_ascii()) {
-            return L"\015\012";
-        }
-        return L"\015";
-
     case Q_KEY_BACKSPACE:
         return keyboard->kbs;
 
