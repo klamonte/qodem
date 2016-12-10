@@ -28,6 +28,7 @@
 #include "vt52.h"
 #include "vt100.h"
 #include "avatar.h"
+#include "atari.h"
 #include "keyboard.h"
 #include "states.h"
 #include "options.h"
@@ -72,11 +73,12 @@ int q_emul_repeat_state_count;
  * @return Q_EMUL_TTY, Q_EMUL_VT100, etc.
  */
 Q_EMULATION emulation_from_string(const char * string) {
-
     if (strncasecmp(string, "TTY", sizeof("TTY")) == 0) {
         return Q_EMUL_TTY;
     } else if (strncasecmp(string, "ANSI", sizeof("ANSI")) == 0) {
         return Q_EMUL_ANSI;
+    } else if (strncasecmp(string, "ATARI", sizeof("ATARI")) == 0) {
+        return Q_EMUL_ATARI;
     } else if (strncasecmp(string, "AVATAR", sizeof("AVATAR")) == 0) {
         return Q_EMUL_AVATAR;
     } else if (strncasecmp(string, "VT52", sizeof("VT52")) == 0) {
@@ -116,6 +118,9 @@ const char * emulation_string(const Q_EMULATION emulation) {
 
     case Q_EMUL_ANSI:
         return "ANSI";
+
+    case Q_EMUL_ATARI:
+        return "ATARI";
 
     case Q_EMUL_AVATAR:
         return "AVATAR";
@@ -166,6 +171,8 @@ const char * emulation_term(Q_EMULATION emulation) {
     switch (emulation) {
     case Q_EMUL_ANSI:
         return "ansi";
+    case Q_EMUL_ATARI:
+        return "atari";
     case Q_EMUL_AVATAR:
         return "avatar";
     case Q_EMUL_VT52:
@@ -334,6 +341,8 @@ Q_CODEPAGE default_codepage(Q_EMULATION emulation) {
     case Q_EMUL_LINUX:
     case Q_EMUL_XTERM:
         return Q_CODEPAGE_CP437;
+    case Q_EMUL_ATARI:
+        return Q_CODEPAGE_ATASCII;
     }
 
     /*
@@ -853,6 +862,7 @@ Q_EMULATION_STATUS terminal_emulator(const unsigned char from_modem,
         (q_status.emulation != Q_EMUL_XTERM) &&
         (q_status.emulation != Q_EMUL_XTERM_UTF8) &&
         (q_status.emulation != Q_EMUL_AVATAR) &&
+        (q_status.emulation != Q_EMUL_ATARI) &&
         (q_status.emulation != Q_EMUL_DEBUG)
         ) {
         if (from_modem == C_CR) {
@@ -872,6 +882,9 @@ Q_EMULATION_STATUS terminal_emulator(const unsigned char from_modem,
     switch (q_status.emulation) {
     case Q_EMUL_ANSI:
         last_state = ansi(from_modem, to_screen);
+        break;
+    case Q_EMUL_ATARI:
+        last_state = atari(from_modem, to_screen);
         break;
     case Q_EMUL_VT52:
         last_state = vt52(from_modem, to_screen);
@@ -903,6 +916,9 @@ Q_EMULATION_STATUS terminal_emulator(const unsigned char from_modem,
             switch (q_status.emulation) {
             case Q_EMUL_ANSI:
                 last_state = ansi(q_emul_repeat_state_buffer[i], to_screen);
+                break;
+            case Q_EMUL_ATARI:
+                last_state = atari(q_emul_repeat_state_buffer[i], to_screen);
                 break;
             case Q_EMUL_VT52:
                 last_state = vt52(q_emul_repeat_state_buffer[i], to_screen);
@@ -970,6 +986,7 @@ void reset_emulation() {
      * Reset ALL of the emulators
      */
     ansi_reset();
+    atari_reset();
     vt52_reset();
     avatar_reset();
     vt100_reset();
@@ -999,6 +1016,7 @@ void reset_emulation() {
         break;
 
     case Q_EMUL_ANSI:
+    case Q_EMUL_ATARI:
     case Q_EMUL_AVATAR:
     case Q_EMUL_VT52:
     case Q_EMUL_VT100:
@@ -1040,7 +1058,7 @@ void emulation_menu_refresh() {
     int message_left;
     int window_left;
     int window_top;
-    int window_height = 18;
+    int window_height = 19;
     int window_length;
 
     if (q_screen_dirty == Q_FALSE) {
@@ -1114,7 +1132,7 @@ void emulation_menu_refresh() {
      * Add the "F1 Help" part
      */
     screen_put_color_str_yx(window_top + window_height - 1,
-                            window_left + window_length - 10, _("F1 Help"),
+                            window_left + window_length - 9, _("F1 Help"),
                             Q_COLOR_WINDOW_BORDER);
 
     screen_put_color_str_yx(window_top + 1, window_left + 2, _("Emulation is "),
@@ -1143,26 +1161,29 @@ void emulation_menu_refresh() {
     screen_put_color_str_yx(window_top + 9, window_left + 7, "G",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  VT220");
-    screen_put_color_str_yx(window_top + 10, window_left + 7, "L",
+    screen_put_color_str_yx(window_top + 10, window_left + 7, "H",
+                            Q_COLOR_MENU_COMMAND);
+    screen_put_color_printf(Q_COLOR_MENU_TEXT, "  ATARI");
+    screen_put_color_str_yx(window_top + 11, window_left + 7, "L",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  LINUX");
-    screen_put_color_str_yx(window_top + 11, window_left + 7, "T",
+    screen_put_color_str_yx(window_top + 12, window_left + 7, "T",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  LINUX UTF-8");
-    screen_put_color_str_yx(window_top + 12, window_left + 7, "X",
+    screen_put_color_str_yx(window_top + 13, window_left + 7, "X",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  XTERM");
-    screen_put_color_str_yx(window_top + 13, window_left + 7, "8",
+    screen_put_color_str_yx(window_top + 14, window_left + 7, "8",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  XTERM UTF-8");
-    screen_put_color_str_yx(window_top + 14, window_left + 7, "U",
+    screen_put_color_str_yx(window_top + 15, window_left + 7, "U",
                             Q_COLOR_MENU_COMMAND);
     screen_put_color_printf(Q_COLOR_MENU_TEXT, "  DEBUG");
 
     /*
      * Prompt
      */
-    screen_put_color_str_yx(window_top + 16, window_left + 2,
+    screen_put_color_str_yx(window_top + 17, window_left + 2,
                             _("Your Choice ? "), Q_COLOR_MENU_COMMAND);
 
     screen_flush();
@@ -1217,6 +1238,11 @@ void emulation_menu_keyboard_handler(const int keystroke, const int flags) {
     case 'G':
     case 'g':
         new_emulation = Q_EMUL_VT220;
+        break;
+
+    case 'H':
+    case 'h':
+        new_emulation = Q_EMUL_ATARI;
         break;
 
     case 'L':

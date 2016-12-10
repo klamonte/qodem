@@ -68,6 +68,11 @@ void keyboard_handler() {
         return;
     }
 
+    if (keystroke == C_CR)
+        keystroke = Q_KEY_ENTER;
+    if (keystroke == C_BS)
+        keystroke == Q_KEY_BACKSPACE;
+
     switch (q_program_state) {
 
     case Q_STATE_CONSOLE:
@@ -409,7 +414,7 @@ Q_PROGRAM_STATE original_state;
  */
 void screensaver_keyboard_handler(const int keystroke, const int flags) {
 
-    if ((keystroke == Q_KEY_ENTER) || (keystroke == C_CR)) {
+    if ((keystroke == Q_KEY_ENTER)) {
         if (password_buffer_n > 0) {
             if (strcmp(password_buffer,
                        get_option(Q_OPTION_SCREENSAVER_PASSWORD)) == 0) {

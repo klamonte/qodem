@@ -122,6 +122,7 @@ $(QODEM_BIN_DIR): $(QODEM_OBJS_DIR)
 
 QODEM_SRC = \
 $(QODEM_SRC_DIR)/ansi.c \
+$(QODEM_SRC_DIR)/atari.c \
 $(QODEM_SRC_DIR)/avatar.c \
 $(QODEM_SRC_DIR)/codepage.c \
 $(QODEM_SRC_DIR)/colors.c \

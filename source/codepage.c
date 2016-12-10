@@ -73,6 +73,8 @@ char * codepage_string(Q_CODEPAGE codepage) {
         return "KOI8_R";
     case Q_CODEPAGE_KOI8_U:
         return "KOI8_U";
+    case Q_CODEPAGE_ATASCII:
+        return "ATASCII";
     }
 
     /*
@@ -124,6 +126,7 @@ Q_CODEPAGE codepage_from_string(const char * string) {
     MATCH_CODEPAGE(KOI8_U, "KOI8_U");
     MATCH_CODEPAGE(KOI8_R, "KOI8-R");
     MATCH_CODEPAGE(KOI8_U, "KOI8-U");
+    MATCH_CODEPAGE(ATASCII, "ATASCII");
     return Q_CODEPAGE_DEC;
 }
 
@@ -258,6 +261,7 @@ void codepage_keyboard_handler(const int keystroke, const int flags) {
     Q_BOOL codepage_cp1252 = Q_FALSE;
     Q_BOOL codepage_koi8_r = Q_FALSE;
     Q_BOOL codepage_koi8_u = Q_FALSE;
+    Q_BOOL codepage_atascii = Q_FALSE;
 
     /*
      * Default to CP437
@@ -301,6 +305,9 @@ void codepage_keyboard_handler(const int keystroke, const int flags) {
         codepage_cp1252 = Q_TRUE;
         codepage_koi8_r = Q_TRUE;
         codepage_koi8_u = Q_TRUE;
+        break;
+    case Q_EMUL_ATARI:
+        codepage_atascii = Q_TRUE;
         break;
     }
 
@@ -457,6 +464,14 @@ void codepage_keyboard_handler(const int keystroke, const int flags) {
             return;
         }
         break;
+    case 'T':
+    case 't':
+        if (codepage_atascii == Q_TRUE) {
+            new_codepage = Q_CODEPAGE_ATASCII;
+        } else {
+            return;
+        }
+        break;
 
     case Q_KEY_F(1):
         launch_help(Q_HELP_CODEPAGE);
@@ -511,7 +526,7 @@ void codepage_refresh() {
     int message_left;
     int window_left;
     int window_top;
-    int window_height = 25;
+    int window_height = 26;
     int window_length;
     int i;
     Q_BOOL codepage_cp437 = Q_FALSE;
@@ -533,6 +548,7 @@ void codepage_refresh() {
     Q_BOOL codepage_cp1252 = Q_FALSE;
     Q_BOOL codepage_koi8_r = Q_FALSE;
     Q_BOOL codepage_koi8_u = Q_FALSE;
+    Q_BOOL codepage_atascii = Q_FALSE;
 
     if (q_screen_dirty == Q_FALSE) {
         return;
@@ -579,6 +595,9 @@ void codepage_refresh() {
         codepage_cp1252 = Q_TRUE;
         codepage_koi8_r = Q_TRUE;
         codepage_koi8_u = Q_TRUE;
+        break;
+    case Q_EMUL_ATARI:
+        codepage_atascii = Q_TRUE;
         break;
     }
 
@@ -821,6 +840,16 @@ void codepage_refresh() {
                                 Q_COLOR_MENU_COMMAND_UNAVAILABLE);
     }
     screen_put_color_printf(Q_COLOR_MENU_TEXT, _("  KOI8-U (Ukrainian)"));
+    i++;
+
+    if (codepage_atascii == Q_TRUE) {
+        screen_put_color_str_yx(window_top + i, window_left + 2, "T",
+                                Q_COLOR_MENU_COMMAND);
+    } else {
+        screen_put_color_str_yx(window_top + i, window_left + 2, "T",
+                                Q_COLOR_MENU_COMMAND_UNAVAILABLE);
+    }
+    screen_put_color_printf(Q_COLOR_MENU_TEXT, _("  ATASCII (Atari)"));
     i++;
 
     /*
@@ -1941,6 +1970,28 @@ static wchar_t koi8_u_chars[256] = {
 };
 
 /**
+ * ATASCII (Atari)
+ */
+static wchar_t atascii_chars[128] = {
+    0x2665, 0x251C, 0x23B9, 0x2518, 0x2524, 0x2510, 0x2571, 0x2572,
+    0x25E2, 0x2597, 0x25E3, 0x259D, 0x2598, 0x23BA, 0x23BD, 0x2596,
+    0x2663, 0x250C, 0x2500, 0x253C, 0x25CF, 0x2584, 0x23B8, 0x252C,
+    0x2534, 0x258C, 0x2514, 0x241B, 0x2191, 0x2193, 0x2190, 0x2192,
+    0x0020, 0x0021, 0x0022, 0x0023, 0x0024, 0x0025, 0x0026, 0x0027,
+    0x0028, 0x0029, 0x002A, 0x002B, 0x002C, 0x002D, 0x002E, 0x002F,
+    0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, 0x0037,
+    0x0038, 0x0039, 0x003A, 0x003B, 0x003C, 0x003D, 0x003E, 0x003F,
+    0x0040, 0x0041, 0x0042, 0x0043, 0x0044, 0x0045, 0x0046, 0x0047,
+    0x0048, 0x0049, 0x004A, 0x004B, 0x004C, 0x004D, 0x004E, 0x004F,
+    0x0050, 0x0051, 0x0052, 0x0053, 0x0054, 0x0055, 0x0056, 0x0057,
+    0x0058, 0x0059, 0x005A, 0x005B, 0x005C, 0x005D, 0x005E, 0x005F,
+    0x2666, 0x0061, 0x0062, 0x0063, 0x0064, 0x0065, 0x0066, 0x0067,
+    0x0068, 0x0069, 0x006A, 0x006B, 0x006C, 0x006D, 0x006E, 0x006F,
+    0x0070, 0x0071, 0x0072, 0x0073, 0x0074, 0x0075, 0x0076, 0x0077,
+    0x0078, 0x0079, 0x007A, 0x2660, 0x007C, 0x2196, 0x25C0, 0x25B6
+};
+
+/**
  * Map a character in q_current_codepage's character set to its equivalent
  * Unicode code point / glyph.
  *
@@ -1995,6 +2046,8 @@ wchar_t codepage_map_char(const unsigned char ch) {
         return koi8_r_chars[ch];
     case Q_CODEPAGE_KOI8_U:
         return koi8_u_chars[ch];
+    case Q_CODEPAGE_ATASCII:
+        return atascii_chars[ch & 0x7f];
     }
 
     /*
@@ -2166,6 +2219,14 @@ extern wchar_t codepage_unmap_byte(const wchar_t ch, const Q_CODEPAGE codepage,
     case Q_CODEPAGE_KOI8_U:
         for (i = 0; i < 255; i++) {
             if (koi8_u_chars[i] == ch) {
+                *success = Q_TRUE;
+                return i;
+            }
+        }
+        return 0;
+    case Q_CODEPAGE_ATASCII:
+        for (i = 0; i < 128; i++) {
+            if (atascii_chars[i] == ch) {
                 *success = Q_TRUE;
                 return i;
             }

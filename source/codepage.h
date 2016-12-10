@@ -37,6 +37,7 @@ extern "C" {
 #define C_STX   0x02
 #define C_EOT   0x04
 #define C_ACK   0x06
+#define C_BS    0x08
 #define C_LF    0x0A
 #define C_CR    0x0D
 #define C_XON   0x11            /* DC1 */
@@ -205,9 +206,9 @@ typedef enum Q_CODEPAGES {
      */
     Q_CODEPAGE_KOI8_R,          /* Russian */
     Q_CODEPAGE_KOI8_U,          /* Ukrainian */
-
+    Q_CODEPAGE_ATASCII,         /* ATASCII (Atari) */
+    Q_CODEPAGE_MAX
 } Q_CODEPAGE;
-#define Q_CODEPAGE_MAX (Q_CODEPAGE_KOI8_U + 1)
 
 #define UTF8_ACCEPT 0
 #define UTF8_REJECT 1

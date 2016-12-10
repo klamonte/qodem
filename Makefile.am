@@ -9,6 +9,7 @@ endif
 
 qodem_SOURCES = \
 source/ansi.c \
+source/atari.c \
 source/avatar.c \
 source/codepage.c \
 source/colors.c \

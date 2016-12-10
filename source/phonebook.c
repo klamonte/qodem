@@ -2720,7 +2720,6 @@ static char * pick_tag_string() {
             fieldset_delete_char(pick_form);
             break;
         case Q_KEY_ENTER:
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -2909,7 +2908,6 @@ static Q_BOOL prompt_ssh_password(const wchar_t * initial_username,
             fieldset_render(pick_form);
             break;
         case Q_KEY_ENTER:
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -3084,7 +3082,6 @@ static char * pick_manual_phone_number() {
             fieldset_delete_char(pick_form);
             break;
         case Q_KEY_ENTER:
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -3237,7 +3234,6 @@ static char * pick_print_destination() {
             fieldset_delete_char(pick_form);
             break;
         case Q_KEY_ENTER:
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -4476,7 +4472,6 @@ static Q_EMULATION pick_emulation() {
             break;
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -4671,7 +4666,6 @@ static Q_CODEPAGE pick_codepage(Q_EMULATION emulation) {
             break;
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -4802,7 +4796,6 @@ static Q_DIAL_METHOD pick_method() {
             break;
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -4943,7 +4936,6 @@ static SORT_METHOD pick_sort() {
             break;
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -5228,7 +5220,6 @@ static Q_DOORWAY pick_doorway() {
             break;
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -5564,7 +5555,6 @@ static void toggles_form(int * toggles) {
 
         case Q_KEY_ENTER:
         case Q_KEY_F(10):
-        case C_CR:
 
             /*
              * The OK exit point
@@ -6238,7 +6228,6 @@ static void edit_phone_entry_form(struct q_phone_struct * entry) {
             return;
 
         case Q_KEY_ENTER:
-        case C_CR:
             if (field_number == CLEAR_CALL_INFO) {
                 entry->times_on = 0;
                 entry->last_call = 0;
@@ -6641,7 +6630,7 @@ static void edit_phone_entry_form(struct q_phone_struct * entry) {
                             _(" Y-Use the Modem Settings   N-Override the Modem Settings for This Entry "),
                             Q_TRUE, 0.0, "YyNn\r"));
 
-                    if ((keystroke == 'y') || (keystroke == C_CR)) {
+                    if ((keystroke == 'y') || (keystroke == Q_KEY_ENTER)) {
                         use_modem_cfg = Q_TRUE;
                     } else {
                         use_modem_cfg = Q_FALSE;
@@ -6654,7 +6643,7 @@ static void edit_phone_entry_form(struct q_phone_struct * entry) {
                                 _("DTE Baud"), _("Lock DTE Baud? [Y/n] "),
                                 _(" Y-Lock Serial Port Speed   N-Change Serial Port Speed After CONNECT "),
                                 Q_TRUE, 0.0, "YyNn\r"));
-                        if ((keystroke == 'y') || (keystroke == C_CR)) {
+                        if ((keystroke == 'y') || (keystroke == Q_KEY_ENTER)) {
                             lock_dte_baud = Q_TRUE;
                         } else {
                             lock_dte_baud = Q_FALSE;
@@ -6675,7 +6664,7 @@ static void edit_phone_entry_form(struct q_phone_struct * entry) {
                             _(" Y-Use the Default Settings   N-Override the Toggles for This Entry "),
                             Q_TRUE, 0.0, "YyNn\r"));
 
-                    if ((keystroke == 'y') || (keystroke == C_CR)) {
+                    if ((keystroke == 'y') || (keystroke == Q_KEY_ENTER)) {
                         use_default_toggles = Q_TRUE;
                         toggles = 0;
                     } else {
@@ -7590,7 +7579,7 @@ void phonebook_keyboard_handler(const int keystroke, const int flags) {
                             _(" Overwrite File? [Y/n] "),
                             _(" Y-Overwrite Script File   N-Do Not Quicklearn "),
                             Q_TRUE, 0.0, "YyNn\r"));
-                    if ((new_keystroke == 'y') || (new_keystroke == C_CR)) {
+                    if ((new_keystroke == 'y') || (new_keystroke == Q_KEY_ENTER)) {
                         q_phonebook.selected_entry->quicklearn = Q_TRUE;
                         q_phonebook.selected_entry->tagged = Q_TRUE;
                         q_phonebook.tagged++;
@@ -7902,7 +7891,6 @@ void phonebook_keyboard_handler(const int keystroke, const int flags) {
         break;
 
     case Q_KEY_ENTER:
-    case C_CR:
         /*
          * Dial
          */

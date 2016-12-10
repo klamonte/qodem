@@ -285,7 +285,6 @@ Q_BOOL prompt_listen_port(char ** port) {
             break;
 #endif
         case Q_KEY_ENTER:
-        case C_CR:
             if (field_visible == Q_TRUE) {
                 /*
                  * The OK exit point
@@ -661,7 +660,6 @@ wchar_t * pick_find_string() {
             fieldset_delete_char(pick_form);
             break;
         case Q_KEY_ENTER:
-        case C_CR:
             /*
              * The OK exit point
              */
@@ -1195,7 +1193,6 @@ save_form_top:
                 fieldset_insert_char(save_form);
                 break;
             case Q_KEY_ENTER:
-            case C_CR:
                 /*
                  * If the file exists and is a directory, pop up a directory
                  * pick box on it.
@@ -2085,7 +2082,6 @@ struct file_info * view_directory(const char * initial_directory,
                 break;
 
             case Q_KEY_ENTER:
-            case C_CR:
 
                 if (strcmp(file_list[selected_field].name, ".") == 0) {
                     /*
@@ -3374,7 +3370,6 @@ Q_BOOL comm_settings_form(const char * title, Q_BAUD_RATE * baud,
             return Q_FALSE;
 
         case Q_KEY_ENTER:
-        case C_CR:
 
             /*
              * The OK exit point
