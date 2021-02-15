@@ -13,7 +13,7 @@
 # qodem itself, and this specific GNUmakefile, are dedicated to the
 # public domain.
 #
-# Written 2003-2017 by Kevin Lamonte
+# Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now
 #
 # To the extent possible under law, the author(s) have dedicated all
 # copyright and related and neighboring rights to this software to the

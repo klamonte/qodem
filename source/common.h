@@ -3,7 +3,7 @@
  *
  * qodem - Qodem Terminal Emulator
  *
- * Written 2003-2017 by Kevin Lamonte
+ * Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now
  *
  * To the extent possible under law, the author(s) have dedicated all
  * copyright and related and neighboring rights to this software to the
@@ -62,7 +62,7 @@ extern "C" {
 /* #undef RELEASE */
 
 #define Q_VERSION               "1.0.1"
-#define Q_AUTHOR                "Kevin Lamonte"
+#define Q_AUTHOR                "Autumn Lamonte"
 
 #ifdef RELEASE
 #define Q_VERSION_BRANCH        "Production"

@@ -1,7 +1,7 @@
 Source: qodem-x11
 Section: comm
 Priority: optional
-Maintainer: Kevin Lamonte <kevin.lamonte@gmail.com>
+Maintainer: Autumn Lamonte <AutumnWalksTheLake@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev, libsdl1.2-dev, libxaw7-dev
 Standards-Version: 3.9.3
 Homepage: http://qodem.sourceforge.net

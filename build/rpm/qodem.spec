@@ -104,9 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sun Jun 18 2017 Kevin Lamonte <lamonte at, users.sourceforge.net> - 1.0.1-1
-* Sun Jun 18 2017 Kevin Lamonte <lamonte at, users.sourceforge.net> - 1.0.0-1
-* Wed Apr 27 2016 Kevin Lamonte <lamonte at, users.sourceforge.net> - 1.0beta-1
-* Sat May 19 2012 Kevin Lamonte <lamonte at, users.sourceforge.net> - 1.0alpha-1
+* Sun Jun 18 2017 Autumn Lamonte <lamonte at, users.sourceforge.net> - 1.0.1-1
+* Sun Jun 18 2017 Autumn Lamonte <lamonte at, users.sourceforge.net> - 1.0.0-1
+* Wed Apr 27 2016 Autumn Lamonte <lamonte at, users.sourceforge.net> - 1.0beta-1
+* Sat May 19 2012 Autumn Lamonte <lamonte at, users.sourceforge.net> - 1.0alpha-1
 * Sun Nov 30 2008 Jeff Gustafson <jeffgus at, fedoraproject.org> - 0.1.2-1
 - Initial package creation

@@ -18,7 +18,7 @@ following people:
   Mark Martinec - snprintf
 
 Some libraries have very minor changes (primary #ifdef guards) to
-enable compilation.  I, Kevin Lamonte, do hereby declare that any
+enable compilation.  I, Autumn Lamonte, do hereby declare that any
 changes and contributions I have made to those libraries are in the
 public domain and available to all.
 

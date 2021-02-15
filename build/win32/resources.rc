@@ -6,11 +6,11 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
     BEGIN
-      VALUE "CompanyName", "Kevin Lamonte"
+      VALUE "CompanyName", "Autumn Lamonte"
       VALUE "FileDescription", "Qodem Terminal Emulator"
       VALUE "FileVersion", "1.0.1"
       VALUE "InternalName", "qodem"
-      VALUE "LegalCopyright", "Written 2003-2017 by Kevin Lamonte.  Dedicated to the public domain."
+      VALUE "LegalCopyright", "Written 2003-2021 by Autumn Lamonte.  Dedicated to the public domain."
       VALUE "OriginalFilename", "qodem.exe"
       VALUE "ProductName", "Qodem"
       VALUE "ProductVersion", "1.0.1"

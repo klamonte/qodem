@@ -3,7 +3,7 @@
  *
  * qodem - Qodem Terminal Emulator
  *
- * Written 2003-2017 by Kevin Lamonte
+ * Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now
  *
  * To the extent possible under law, the author(s) have dedicated all
  * copyright and related and neighboring rights to this software to the
@@ -1076,7 +1076,7 @@ static char * usage_string() {
 static char * version_string() {
     return _(""
 "qodem version 1.0.1\n"
-"Written 2003-2017 by Kevin Lamonte\n"
+"Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now\n"
 "\n"
 "To the extent possible under law, the author(s) have dedicated all\n"
 "copyright and related and neighboring rights to this software to the\n"

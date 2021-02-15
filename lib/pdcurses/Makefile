@@ -1,4 +1,4 @@
-# This makefile was written 2015 by Kevin Lamonte.  To the extent
+# This makefile was written 2015 by Autumn Lamonte.  To the extent
 # possible under law, the author(s) have dedicated all copyright and
 # related and neighboring rights to this Makefile to the public domain
 # worldwide. This Makefile is distributed without any warranty.  You

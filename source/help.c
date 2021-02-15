@@ -3,7 +3,7 @@
  *
  * qodem - Qodem Terminal Emulator
  *
- * Written 2003-2017 by Kevin Lamonte
+ * Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now
  *
  * To the extent possible under law, the author(s) have dedicated all
  * copyright and related and neighboring rights to this software to the
@@ -2132,7 +2132,7 @@ char * raw_help_text = \
 "\n"
 "@TOPIC{REFERENCE_97_COPYRIGHT,Reference - Copyright}\n"
 "@BOLD{Qodem Terminal Emulator}\n"
-"Written 2003-2017 by Kevin Lamonte\n"
+"Written 2003-2021 by Autumn Lamonte ⚧ Trans Liberation Now\n"
 "\n"
 "To the extent possible under law, the author(s) have dedicated all\n"
 "copyright and related and neighboring rights to this software to the\n"

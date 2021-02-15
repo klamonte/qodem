@@ -2,32 +2,32 @@ qodem (1.0.1-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sun, 18 Jun 2017 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sun, 18 Jun 2017 12:00:00 -0600
 
 qodem (1.0.0-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sun, 18 Jun 2017 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sun, 18 Jun 2017 12:00:00 -0600
 
 qodem (1.0~beta-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Wed, 27 Apr 2016 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Wed, 27 Apr 2016 12:00:00 -0600
 
 qodem (1.0~alpha-1) unstable; urgency=low
 
   * New upstream release
   * Separate into two packages: qodem and qodem-x11
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sat, 19 May 2012 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sat, 19 May 2012 12:00:00 -0600
 
 qodem (0.3.2-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sat, 09 Oct 2010 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sat, 09 Oct 2010 12:00:00 -0600
 
 qodem (0.3.1-1) unstable; urgency=low
 
@@ -35,22 +35,22 @@ qodem (0.3.1-1) unstable; urgency=low
   * Remove preinst, postinst, prerm, postrm
   * Remove dependencies on X11
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Fri, 17 Sep 2010 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Fri, 17 Sep 2010 12:00:00 -0600
 
 qodem (0.3.0-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sun, 15 Aug 2010 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sun, 15 Aug 2010 12:00:00 -0600
 
 qodem (0.2.1-1) unstable; urgency=low
 
   * New upstream release
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Mon, 19 Jul 2010 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Mon, 19 Jul 2010 12:00:00 -0600
 
 qodem (0.2.0-1) unstable; urgency=low
 
   * Initial release (Closes: #560902)
 
- -- Kevin Lamonte <kevin.lamonte@gmail.com>  Sat, 12 Dec 2009 12:00:00 -0600
+ -- Autumn Lamonte <AutumnWalksTheLake@gmail.com>  Sat, 12 Dec 2009 12:00:00 -0600

@@ -3,7 +3,7 @@
 
 #define MyAppName "Qodem"
 #define MyAppVersion "1.0.1"
-#define MyAppPublisher "Kevin Lamonte"
+#define MyAppPublisher "Autumn Lamonte"
 #define MyAppURL "http://qodem.sourceforge.net"
 #define MyAppExeName "qodem.exe"
 

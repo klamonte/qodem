@@ -1,15 +1,15 @@
-This package was debianized by Kevin Lamonte <kevin.lamonte@gmail.com> on
+This package was debianized by Autumn Lamonte <AutumnWalksTheLake@gmail.com> on
 Sat, 12 Dec 2009 12:00:00 -0600.
 
 It was downloaded from http://qodem.sourceforge.net
 
 Upstream Author:
 
-    Kevin Lamonte <kevin.lamonte@gmail.com>
+    Autumn Lamonte <AutumnWalksTheLake@gmail.com>
 
 Copyright:
 
-    This work was written 2003-2017 by Kevin Lamonte.  It was
+    This work was written 2003-2017 by Autumn Lamonte.  It was
     dedicated to the public domain on May 26, 2015.
 
 License:
@@ -21,8 +21,8 @@ License:
     and provides a public license fallback for those jurisdictions
     that do not recognize the public domain.
 
-The Debian packaging was written 2009-2017 by Kevin Lamonte
-<kevin.lamonte@gmail.com> and has been dedicated to the public domain.
+The Debian packaging was written 2009-2017 by Autumn Lamonte
+<AutumnWalksTheLake@gmail.com> and has been dedicated to the public domain.
 
 Qodem is linked to miniupnpc and cryptlib.  Those licenses are
 reproduced below:

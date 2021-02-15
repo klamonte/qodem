@@ -3,7 +3,7 @@ qodem (1.0.1-1) unstable; urgency=low
   * Bug fixes
   * Linux console GPM mouse support
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Sun, 18 Jun 2017 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Sun, 18 Jun 2017 18:50:00 -0500
 
 qodem (1.0.0-1) unstable; urgency=low
 
@@ -47,7 +47,7 @@ qodem (1.0.0-1) unstable; urgency=low
   * Modem option to ignore DCD and not use DTR for hangup (support 3-wire
     RS-232)
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Sun, 18 Jun 2017 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Sun, 18 Jun 2017 18:50:00 -0500
 
 qodem (1.0beta-1) unstable; urgency=low
 
@@ -72,7 +72,7 @@ qodem (1.0beta-1) unstable; urgency=low
   * Back-conversion of Unicode to current 8-bit codepage
   * OSX app bundle (loads qodem-bin in Terminal) + dmg build
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Wed, 27 Apr 2016 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Wed, 27 Apr 2016 18:50:00 -0500
 
 qodem (1.0alpha-1) unstable; urgency=low
 
@@ -122,7 +122,7 @@ qodem (1.0alpha-1) unstable; urgency=low
   * Kermit full duplex sliding windows, RESEND
   * Win32 support (serial port deferred)
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Sat,  19 May 2012 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Sat,  19 May 2012 18:50:00 -0500
 
 qodem (0.3.2-1) unstable; urgency=low
 
@@ -130,7 +130,7 @@ qodem (0.3.2-1) unstable; urgency=low
   * Expose port in phonebook for ssh and telnet connections
   * Fix bug preventing talking to modem in TERMINAL mode
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Fri,  22 Oct 2010 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Fri,  22 Oct 2010 18:50:00 -0500
 
 qodem (0.3.1-1) unstable; urgency=low
   * Alt-W view directory toggle show dot-files with F4
@@ -141,7 +141,7 @@ qodem (0.3.1-1) unstable; urgency=low
   * Phonebook sort on last connect time and reverse sort
   * New X11 launch script 'xqodem'
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Fri,  17 Sep 2010 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Fri,  17 Sep 2010 18:50:00 -0500
 
 qodem (0.3.0-1) unstable; urgency=low
 
@@ -154,7 +154,7 @@ qodem (0.3.0-1) unstable; urgency=low
   * Compiles on FreeBSD
   * Many miscellaneous bug fixes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Sun,  15 Aug 2010 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Sun,  15 Aug 2010 18:50:00 -0500
 
 qodem (0.2.1-1) unstable; urgency=low
 
@@ -164,7 +164,7 @@ qodem (0.2.1-1) unstable; urgency=low
   * Command line method support
   * Many miscellaneous bug fixes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Mon,  19 Jul 2010 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Mon,  19 Jul 2010 18:50:00 -0500
 
 qodem (0.2.0-1) unstable; urgency=low
 
@@ -176,7 +176,7 @@ qodem (0.2.0-1) unstable; urgency=low
   * Double-width/double-height support in VT100
   * Replaced libform with fieldset
 
-  -- Kevin Lamonte <lamonte@users.sourceforge.net>  Fri,  18 Dec 2009 18:50:00 -0500
+  -- Autumn Lamonte <lamonte@users.sourceforge.net>  Fri,  18 Dec 2009 18:50:00 -0500
 
 qodem (0.1.3-1) unstable; urgency=low
 
@@ -187,7 +187,7 @@ qodem (0.1.3-1) unstable; urgency=low
   * Replaced gettext keys with English keys (no more _en builds)
   * Many miscellaneous bug fixes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Tue, 24 Nov 2009 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Tue, 24 Nov 2009 18:50:00 -0500
 
 qodem (0.1.2-1) unstable; urgency=low
 
@@ -197,7 +197,7 @@ qodem (0.1.2-1) unstable; urgency=low
   * Prompt to overwrite downloaded files
   * Many miscellaneous bug fixes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Thu,  6 Aug 2007 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Thu,  6 Aug 2007 18:50:00 -0500
 
 qodem (0.1.1-1) unstable; urgency=low
 
@@ -208,7 +208,7 @@ qodem (0.1.1-1) unstable; urgency=low
   * LINUX console beep support
   * Resizing bug fixes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Mon, 27 Jun 2005 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Mon, 27 Jun 2005 18:50:00 -0500
 
 qodem (0.1.0-1) unstable; urgency=low
 
@@ -222,7 +222,7 @@ qodem (0.1.0-1) unstable; urgency=low
   * Automagically resize xterm to at least 80x25 to avoid crash bug
   * Fix Avatar bugs, now seems to work on Maximus 3.01 BBSes
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Thu, 14 Apr 2005 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Thu, 14 Apr 2005 18:50:00 -0500
 
 qodem (0.0.7-1) unstable; urgency=low
 
@@ -239,7 +239,7 @@ qodem (0.0.7-1) unstable; urgency=low
   * ANSI fallback for Avatar
   * ANSI music
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Tue, 18 May 2004 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Tue, 18 May 2004 18:50:00 -0500
 
 qodem (0.0.6-1) unstable; urgency=low
 
@@ -264,7 +264,7 @@ qodem (0.0.6-1) unstable; urgency=low
   * Xmodem, Ymodem somewhat functional.
   * Phonebook now saves tagged entries
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Tue, 11 May 2004 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Tue, 11 May 2004 18:50:00 -0500
 
 qodem (0.0.5-1) unstable; urgency=low
 
@@ -275,7 +275,7 @@ qodem (0.0.5-1) unstable; urgency=low
   * Passes vttest "VT52" test 100%
   * Passes vttest "Terminal reports" test 100%
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Tue, 21 Oct 2003 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Tue, 21 Oct 2003 18:50:00 -0500
 
 qodem (0.0.4-1) unstable; urgency=low
 
@@ -287,7 +287,7 @@ qodem (0.0.4-1) unstable; urgency=low
   * Added batch upload support
   * Added support for Boehm garbage collector
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Thu, 19 Jun 2003 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Thu, 19 Jun 2003 18:50:00 -0500
 
 qodem (0.0.3-1) unstable; urgency=low
 
@@ -298,4 +298,4 @@ qodem (0.0.3-1) unstable; urgency=low
   * Split screen
   * Capture: raw, html
 
- -- Kevin Lamonte <lamonte@users.sourceforge.net>  Thu, 19 Jun 2003 18:50:00 -0500
+ -- Autumn Lamonte <lamonte@users.sourceforge.net>  Thu, 19 Jun 2003 18:50:00 -0500

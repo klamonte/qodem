@@ -2,7 +2,7 @@
 #
 # qodem - Qodem Terminal Emulator
 #
-# Written 2003-2019 by Kevin Lamonte
+# Written 2003-2019 by Autumn Lamonte
 #
 # To the extent possible under law, the author(s) have dedicated all
 # copyright and related and neighboring rights to this software to the
