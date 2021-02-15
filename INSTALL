@@ -146,3 +146,6 @@ Defines for different functionality are listed below:
 
     QMODEM_INFO_SCREEN - Use a Qmodem 5.0-derived screen for the Alt-I info
                          display.
+
+    Q_NO_TRANS_HEART   - Use the Alt-I info screen that lacks the transgender
+                         heart picture.

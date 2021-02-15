@@ -1,6 +1,56 @@
 The Qodem Project Work Log
 ==========================
 
+February 15, 2021
+
+Little has happened to Qodem, but a ton has happened in the real
+world, and in my life.
+
+I am transgender.  Neat!  More specifically, I am a trans woman.  And
+I am transitioning, and yes it takes forEVER, and no I won't talk much
+more about it other than my name is Autumn and my pronouns are
+she/her.  I would rename my GitHub and GitLab usernames from klamonte
+to something else, but there are enough forks out there and longevity
+that I see little reason to push that inconvenience to everyone else.
+
+But cool bonus: I get a symbol from Unicode now! ⚧ I get a flag too,
+but a lot of operating systems aren't there yet.  And it isn't in my
+Emacs yet either, bummer. :-( But let's see if GitHub will show it in
+a browser, here goes: 🏳⚧
+
+For whatever reason (OK, we all know the reason) the political
+conservative universe has decided that in response to Biden's
+commitment to follow the fucking law, trans women like me are just the
+worst sort of people.  (They don't care about trans men one way or the
+other apparently.)  We are simultaneously too masculine to pass as
+women in the bathroom, yet also so feminine that we easily fool
+straight cis men into the bedroom.  (Which for me is quite gross.
+Never wanted to date men before, certainly don't want to touch them
+now.)  Anyway, long story short: fuck TERFs because at this point they
+are really just the same old racists on the wrong side of history as
+always.  As they say: scratch a transphobe, find a racist.  While we
+are here I may as well also get out:
+
+Black Lives Matter.  Black Trans Lives Matter too.
+
+I've added my personal informal trademark -- a trans heart flag -- to
+the info screen.  If that isn't workable for a specific distro out
+there, you can set Q_NO_TRANS_HEART and get the old screen without it.
+My "politics" such as they are will remain confined to the worklog and
+commit messages, rather than end-user visible stuff.  And after this
+little mass rename of myself probably not much coming anyway.  (Though
+it is galling to call my personal right to keep working for companies
+I want to help out, and be treated like a normal human being by the
+medical industry, mere "politics".  Welcome to
+not-straight-cis-manhood I suppose.)
+
+I've been collecting up minor bugs and a couple neat minor features
+over the last few years.  I will be releasing a basic source tarball
+sometime soonish.  It won't be as thoroughly tested as 1.0.0 was,
+simply because I lack the time to do all that.  But Qodem is pretty
+mature, and should mostly be from here on out just keeping up with the
+compiler changes.  Crossing fingers.
+
 June 11, 2017
 
 Thanks to Ryan de Laplante, Qodem can now dial actual BBSes!  I needed

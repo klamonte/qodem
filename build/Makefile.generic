@@ -63,6 +63,8 @@ default: qodem
 # QMODEM_INFO_SCREEN - Use a Qmodem 5.0-derived screen for the Alt-I info
 #                      display.
 #
+# Q_NO_TRANS_HEART   - Use the Alt-I info screen that lacks the transgender
+#                      heart picture.
 
 # ----------------------------------------------------------------------------
 # C compiler and linker options
@@ -89,7 +91,7 @@ CC = cc
 # Normal settings
 EXTRA_LIBS =
 EXTRA_INC =
-CFLAGS = -O2 -Wall $(INC) -DHAVE_NCURSESW_CURSES_H -DQMODEM_INFO_SCREEN
+CFLAGS = -O2 -Wall $(INC) -DHAVE_NCURSESW_CURSES_H
 LDLIBS = -lncursesw -lutil
 
 # Debug settings which include cryptlib support
