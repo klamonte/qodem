@@ -101,8 +101,8 @@ EXTRA_DIST = \
 @srcdir@/misc/fonts \
 @srcdir@/misc/screenshots \
 @srcdir@/misc/convert_ibbs.pl \
-@srcdir@/misc/ibbs0517.txt \
-@srcdir@/misc/ibbs0517.zip \
+@srcdir@/misc/ibbs0321.txt \
+@srcdir@/misc/ibbs0321.zip \
 @srcdir@/lib/c \
 @srcdir@/lib/upnp \
 @srcdir@/lib/pdcurses \

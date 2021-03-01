@@ -13,8 +13,8 @@
 # along with this software. If not, see
 # <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-QODEM_DIR=/home/kevinl/code/qodem/git/qodem
-WINDOWS_BUILD_DIR=/media/sf_shared/qodem2k/git/qodem
+QODEM_DIR=/home/autumn/code/qodem/git/qodem
+WINDOWS_BUILD_DIR=/home/autumn/shared/qodem2k/git/qodem
 # RSYNCN=-n
 RSYNCN=
 
